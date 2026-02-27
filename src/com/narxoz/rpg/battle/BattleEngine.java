@@ -46,27 +46,27 @@ public final class BattleEngine {
                 Combatant target = teamB.get(0);
                 target.takeDamage(attacker.getAttackPower());
 
-                result.addLog(attacker.getName() + "hits" + target.getName() + "for" + attacker.getAttackPower());
+                result.addLog(attacker.getName() + " hits " + target.getName() + " for " + attacker.getAttackPower());
 
                 if (!target.isAlive()) {
-                    result.addLog(target.getName() + "died");
+                    result.addLog(target.getName() + " died ");
                     teamB.remove(target);
                 }
             }
 
             for (Combatant attacker : new ArrayList<>(teamB)) {
-                if (teamB.isEmpty()) {
+                if (teamA.isEmpty()) {
                     break;
                 }
 
                 Combatant target = teamA.get(0);
                 target.takeDamage(attacker.getAttackPower());
 
-                result.addLog(attacker.getName() + "hits" + target.getName() + "for" + attacker.getAttackPower());
+                result.addLog(attacker.getName() + " hits " + target.getName() + " for " + attacker.getAttackPower());
 
                 if (!target.isAlive()) {
-                    result.addLog(target.getName() + "died");
-                    teamB.remove(target);
+                    result.addLog(target.getName() + " died");
+                    teamA.remove(target);
                 }
             }
         }
