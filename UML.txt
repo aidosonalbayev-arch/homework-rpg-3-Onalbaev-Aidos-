@@ -1,0 +1,67 @@
+interface Combatant {
++ getName() : String
++ getAttackPower() : int
++ receiveDamage(damage:int) : void
++ isAlive() : boolean
+}
+
+class Hero {
+- name : String
+- health : int
+- power : int
++ getName() : String
++ getPower() : int
++ takeDamage(damage:int) : void
++ isAlive() : boolean
+}
+
+class Enemy {
+- name : String
+- health : int
+- damage : int
++ getName() : String
++ getDamage() : int
++ applyDamage(damage:int) : void
++ isAlive() : boolean
+}
+
+class HeroCombatantAdapter {
+- hero : Hero
++ getName() : String
++ getAttackPower() : int
++ receiveDamage(damage:int) : void
++ isAlive() : boolean
+}
+
+class EnemyCombatantAdapter {
+- enemy : Enemy
++ getName() : String
++ getAttackPower() : int
++ receiveDamage(damage:int) : void
++ isAlive() : boolean
+}
+
+class BattleResult {
+- winner : String
+- rounds : int
++ getWinner() : String
++ getRounds() : int
+}
+
+class BattleEngine {
+- instance : BattleEngine
+- random : Random
+- BattleEngine()
++ getInstance() : BattleEngine
++ runEncounter(teamA: List<Combatant>, teamB: List<Combatant>) : BattleResult
++ reset() : void
+}
+
+Combatant <|.. HeroCombatantAdapter
+Combatant <|.. EnemyCombatantAdapter
+
+HeroCombatantAdapter --> Hero
+EnemyCombatantAdapter --> Enemy
+
+BattleEngine --> Combatant
+BattleEngine --> BattleResult
